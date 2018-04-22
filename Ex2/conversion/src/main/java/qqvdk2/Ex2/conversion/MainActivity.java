@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -37,6 +36,13 @@ public class MainActivity extends AppCompatActivity {
             "VND",
             "EUR",
             "JPY"
+    };
+
+    double[] unit = {
+            1,
+            22770,
+            0.81,
+            107.65
     };
 
 
@@ -197,16 +203,16 @@ public class MainActivity extends AppCompatActivity {
             val1 = Double.parseDouble(view1.getText().toString());
             switch (ctr1.getSelectedItemPosition()){
                 case 0:
-                    val2 = val1;
+                    val2 = val1 / unit[0];
                     break;
                 case 1:
-                    val2 = val1 / 22770;
+                    val2 = val1 / unit[1];
                     break;
                 case 2:
-                    val2 = val1 * 1.23;
+                    val2 = val1 / unit[2];
                     break;
                 case 3:
-                    val2 = val1 / 107.65;
+                    val2 = val1 / unit[3];
                     break;
                 default:
                     val2 = val1;
@@ -214,16 +220,16 @@ public class MainActivity extends AppCompatActivity {
 
             switch (ctr2.getSelectedItemPosition()){
                 case 0:
-                    val2 = val2;
+                    val2 = val2 * unit[0];
                     break;
                 case 1:
-                    val2 = val2 * 22770;
+                    val2 = val2 * unit[1];
                     break;
                 case 2:
-                    val2 = val2 / 1.23;
+                    val2 = val2 * unit[2];
                     break;
                 case 3:
-                    val2 = val2 * 107.65;
+                    val2 = val2 * unit[3];
                     break;
                 default:
                     val2 = val2;
